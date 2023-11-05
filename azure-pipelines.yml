@@ -31,7 +31,7 @@ stages:
   jobs:
   - job: BuildJob
      pool:
-      vmImage: $(vmImageName)
+       vmImage: $(vmImageName)
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -54,7 +54,7 @@ stages:
         make lint
       workingDirectory: $(projectRoot)
       displayName: "Run Lint test"
-      
+
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -75,7 +75,7 @@ stages:
   jobs:
   - deployment: DeploymentJob
      pool:
-      vmImage: $(vmImageName)
+       vmImage: $(vmImageName)
     environment: $(environmentName)
     strategy:
       runOnce:
